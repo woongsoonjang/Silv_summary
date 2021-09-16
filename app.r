@@ -10,7 +10,7 @@ library(leaflet.opacity)
 library(sf)
 library(raster)
 library(readxl)
-library (ggplot2)
+library(ggplot2)
 library(reshape)
 library(hrbrthemes)
 
@@ -38,6 +38,8 @@ ui <-
 
       tabPanel("Province", 
           fluidRow(
+              column(12, 
+                     h3("This is a", span("DEMO", style = "color:red"), "for testing purposes.")),
               column(3, wellPanel(
                             selectInput(inputId="pr_type", label="Select type of practice",
                                         choices = c("Site Preperation" =1, 
