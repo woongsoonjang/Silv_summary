@@ -22,7 +22,7 @@ Plant_sum <- as.data.frame(read_excel("data/YR_SUM.xlsx", sheet="Planted_trees")
 max.year <- max(Prov_sum$YR, na.rm = TRUE)
 min.year <- min(Prov_sum$YR, na.rm = TRUE)
 
-## SPATIAL DATA
+## Map data
 bcdist <- st_read("data/ADM_NR_DST_polygon.shp")
 bcdist1<- st_transform(bcdist, crs = 4326)
 dist.maprecord <- as.character(bcdist$DSTRCT_NM)
@@ -32,7 +32,7 @@ rgn.list <- sort(unique(rgn.maprecord))
 
 
 
-# Define UI ----
+# UI
 ui <- 
   navbarPage(title = "BC Silviculture Summary Dashboard", theme = "bcgov.css", 
 
@@ -148,7 +148,7 @@ ui <-
   )
 
 
-# Define server logic ----
+# Server
 server <- function(input, output, session) {
   
   output$barchart_pr <- renderUI({
@@ -212,5 +212,5 @@ server <- function(input, output, session) {
   
 }
 
-# Run the app ----
+#################### End #############################
 shinyApp(ui = ui, server = server)
